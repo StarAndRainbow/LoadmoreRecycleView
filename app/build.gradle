@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+//TODO
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.sanhen.www.learnkotlin"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    api "com.android.support:appcompat-v7:$support_version"
+    api "com.android.support:recyclerview-v7:$support_version"
+    //implementation 'com.android.support:recyclerview-v7:27.1.0'
+    //TODO
+    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    //Anko是一个用来简化一些Android任务的很强大的Kotlin库。我们之后将会学习部分
+    //anko，但是现在来说仅仅增加 anko-common 就足够了。这个库被分割成了一系列
+    //小的部分以至于我们不会把没用到的部分加进来
+    api "org.jetbrains.anko:anko-common:$anko_version"
+}
+
+//TODO
+buildscript {
+    repositories {
+        jcenter()
+
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
+    }
+}
